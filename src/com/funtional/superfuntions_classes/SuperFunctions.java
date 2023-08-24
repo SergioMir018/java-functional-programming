@@ -1,8 +1,6 @@
 package com.funtional.superfuntions_classes;
 
-import com.funtional.superfuntions_classes.interfaces.Predicate;
-import com.funtional.superfuntions_classes.interfaces.IntegerList;
-import com.funtional.superfuntions_classes.interfaces.TransformList;
+import com.funtional.superfuntions_classes.interfaces.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +33,25 @@ public class SuperFunctions {
 
         for (Integer value:values) {
             result.add(list.transform(value));
+        }
+
+        return result;
+    }
+
+    public static List<Integer> doSomething(List<Integer> values, Consumer consumer) {
+        for (Integer value:values) {
+            consumer.consume(value);
+        }
+
+        return values;
+    }
+
+    public static Integer sumValues(Integer entity, List<Integer> values, Operation opt) {
+        Integer result = entity;
+
+        for (Integer value:values) {
+            result += opt.sum(value, entity);
+            System.out.println(result);
         }
 
         return result;

@@ -1,9 +1,6 @@
 package com.funtional.superfuntions_classes;
 
-import com.funtional.superfuntions_classes.classes.Naturals;
-import com.funtional.superfuntions_classes.classes.OnlyEven;
-import com.funtional.superfuntions_classes.classes.RandomNumber;
-import com.funtional.superfuntions_classes.classes.SquareUp;
+import com.funtional.superfuntions_classes.classes.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,30 +19,12 @@ public class Main {
         var filteredNumbers = SuperFunctions.filter(numbers, new OnlyEven());
         System.out.println(filteredNumbers);
         // 3 - Elevate all the numbers to the square
-        var squareNumbers = SuperFunctions.transform(filteredNumbers, new SquareUp());
-        System.out.println(squareNumbers);
+        var transformedNumbers = SuperFunctions.transform(filteredNumbers, new CubeUp());
+        System.out.println(transformedNumbers);
         // 4 - Show all the square numbers on screen
-        var showedList = showList(squareNumbers);
+        var showedList = SuperFunctions.doSomething(transformedNumbers, new Printer());
         // 5 - Get the sum of all the square numbers
-        var sumOfSquareNumbers = sumList(showedList);
+        var sumOfSquareNumbers = SuperFunctions.sumValues(0, showedList, new Sum());
         System.out.println(sumOfSquareNumbers);
-    }
-
-    private List<Integer> showList(List<Integer> listOfNumbers) {
-        for (Integer number:listOfNumbers) {
-            System.out.println(number);
-        }
-
-        return listOfNumbers;
-    }
-
-    private Integer sumList(List<Integer> listOfNumbers) {
-        int total = 0;
-
-        for (Integer number:listOfNumbers) {
-            total += number;
-        }
-
-        return total;
     }
 }
