@@ -1,6 +1,6 @@
 package com.funtional.superfunctions_generics.interfaces;
 
-public interface Consumer {
+public interface Consumer<T> {
 
-    void consume(Integer value);
+    void consume(T value);
 }

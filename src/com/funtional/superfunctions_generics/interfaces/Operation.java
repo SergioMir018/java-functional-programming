@@ -1,6 +1,6 @@
 package com.funtional.superfunctions_generics.interfaces;
 
-public interface Operation {
+public interface Operation<T> {
 
-    Integer sum(Integer value1, Integer value2);
+    T sum(T value1, T value2);
 }

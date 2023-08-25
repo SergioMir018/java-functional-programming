@@ -7,10 +7,10 @@ import java.util.List;
 
 public class SuperFunctions {
 
-    public static List<Integer> filter(List<Integer> values, Predicate predicate) {
-        List<Integer> result = new ArrayList<>();
+    public static <T> List<T> filter(List<T> values, Predicate<T> predicate) {
+        List<T> result = new ArrayList<>();
 
-        for (Integer value:values) {
+        for (T value:values) {
             if (predicate.test(value)) {
                 result.add(value);
             }
@@ -19,8 +19,8 @@ public class SuperFunctions {
         return result;
     }
 
-    public static List<Integer> integerList(int size, IntegerList list) {
-        List<Integer> result = new ArrayList<>();
+    public static <T> List<T> integerList(int size, IntegerList<T> list) {
+        List<T> result = new ArrayList<>();
 
         for(int i = 0; i < size; i++) {
             result.add(list.obtain());
@@ -28,29 +28,29 @@ public class SuperFunctions {
         return result;
     }
 
-    public static List<Integer> transform(List<Integer> values, TransformList list) {
-        List<Integer> result = new ArrayList<>();
+    public static <T> List<T> transform(List<T> values, TransformList<T> list) {
+        List<T> result = new ArrayList<>();
 
-        for (Integer value:values) {
+        for (T value:values) {
             result.add(list.transform(value));
         }
 
         return result;
     }
 
-    public static List<Integer> doSomething(List<Integer> values, Consumer consumer) {
-        for (Integer value:values) {
+    public static <T> List<T> doSomething(List<T> values, Consumer<T> consumer) {
+        for (T value:values) {
             consumer.consume(value);
         }
 
         return values;
     }
 
-    public static Integer sumValues(Integer entity, List<Integer> values, Operation opt) {
-        Integer result = entity;
+    public static <T> T sumValues(T entity, List<T> values, Operation<T> opt) {
+        T result = entity;
 
-        for (Integer value:values) {
-            result += opt.sum(value, entity);
+        for (T value:values) {
+            result = opt.sum(value, entity);
             System.out.println(result);
         }
 

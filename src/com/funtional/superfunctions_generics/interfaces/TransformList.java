@@ -1,6 +1,6 @@
 package com.funtional.superfunctions_generics.interfaces;
 
-public interface TransformList {
+public interface TransformList<T> {
 
-    Integer transform(int value);
+    T transform(T value);
 }
