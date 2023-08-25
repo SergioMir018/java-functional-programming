@@ -28,8 +28,8 @@ public class SuperFunctions {
         return result;
     }
 
-    public static <T> List<T> transform(List<T> values, TransformList<T> list) {
-        List<T> result = new ArrayList<>();
+    public static <T, R> List<R> transform(List<T> values, TransformList<T, R> list) {
+        List<R> result = new ArrayList<>();
 
         for (T value:values) {
             result.add(list.transform(value));
@@ -46,7 +46,7 @@ public class SuperFunctions {
         return values;
     }
 
-    public static <T> T sumValues(T entity, List<T> values, Operation<T> opt) {
+    public static <T> T sumValues(T entity, List<T> values, BinaryOperation<T> opt) {
         T result = entity;
 
         for (T value:values) {
