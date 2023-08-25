@@ -50,7 +50,7 @@ public class SuperFunctions {
         Integer result = entity;
 
         for (Integer value:values) {
-            result += opt.sum(value, entity);
+            result = opt.sum(value, result);
             System.out.println(result);
         }
 
