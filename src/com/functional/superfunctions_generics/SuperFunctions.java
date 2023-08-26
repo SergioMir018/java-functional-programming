@@ -1,7 +1,6 @@
 package com.functional.superfunctions_generics;
 
 import com.functional.superfunctions_generics.interfaces.*;
-import com.funtional.functional.superfunctions_generics.interfaces.*;
 
 import java.util.ArrayList;
 import java.util.List;
