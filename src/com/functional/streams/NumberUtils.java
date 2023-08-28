@@ -1,4 +1,4 @@
-package com.functional.optional;
+package com.functional.streams;
 
 public class NumberUtils {
     public static boolean isPrime(int value) {

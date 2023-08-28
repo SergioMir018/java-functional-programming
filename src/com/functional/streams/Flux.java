@@ -1,4 +1,4 @@
-package com.functional.optional;
+package com.functional.streams;
 
 import java.util.*;
 import java.util.function.*;

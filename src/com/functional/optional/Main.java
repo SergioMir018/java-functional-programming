@@ -1,7 +1,6 @@
 package com.functional.optional;
 
 import java.util.Comparator;
-import java.util.Optional;
 import java.util.Random;
 
 public class Main {
