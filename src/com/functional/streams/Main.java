@@ -69,9 +69,15 @@ public class Main {
         System.out.println(charName);
 
         Stream.of(1, 2, 3)
+                .filter(value -> false)
                 .mapToInt(Integer::intValue)
                 .max()
-                .ifPresent(System.out::println);
+                // This intermediate operation will execute in case that the optional value is present
+                //.ifPresent(System.out::println)
+                // This variation of isPresent() will do the same as the other but that in case that the optional value
+                // is in fact null, will run a Runnable that returns void
+                .ifPresentOrElse(System.out::println,
+                        () -> System.out.println("No max value"));
 
 /*
         Flux.integerList(10, this::randomInt)
