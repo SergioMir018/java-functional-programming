@@ -94,6 +94,12 @@ public class Main {
                         () -> System.out.print("There is no max value because the flux is empty")
                         );
 */
+        var accumulatedAges = Stream.of(
+                new Student("Sergio", 20),
+                new Student("Idania", 56)
+        ).reduce(0,(partialResult, student) -> partialResult + student.getAge(), Integer::sum);
+
+        System.out.println(accumulatedAges);
     }
 
 /*
