@@ -1,5 +1,6 @@
 package com.functional.streams;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collector;
@@ -79,6 +80,13 @@ public class Main {
                 .ifPresentOrElse(System.out::println,
                         () -> System.out.println("No max value"));
 
+        var accumulatedAges = Stream.of(
+                new Student("Sergio", 20),
+                new Student("Idania", 56)
+        ).reduce(0,(partialResult, student) -> partialResult + student.getAge(), Integer::sum);
+
+        System.out.println(accumulatedAges);
+
 /*
         Flux.integerList(10, this::randomInt)
                 .order(Integer::compareTo)
@@ -94,17 +102,11 @@ public class Main {
                         () -> System.out.print("There is no max value because the flux is empty")
                         );
 */
-        var accumulatedAges = Stream.of(
-                new Student("Sergio", 20),
-                new Student("Idania", 56)
-        ).reduce(0,(partialResult, student) -> partialResult + student.getAge(), Integer::sum);
-
-        System.out.println(accumulatedAges);
+        random.ints(10, 1, 10)
+                .boxed()
+                .filter(value -> value >= 5)
+                .sorted(Comparator.naturalOrder())
+                .map(value -> (int) Math.pow(value, 2))
+                .
     }
-
-/*
-    private int randomInt() {
-        return random.nextInt(10);
-    }
-*/
 }
