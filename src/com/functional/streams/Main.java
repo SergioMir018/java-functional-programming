@@ -102,11 +102,24 @@ public class Main {
                         () -> System.out.print("There is no max value because the flux is empty")
                         );
 */
-        random.ints(10, 1, 10)
+        var sumOfStream = random.ints(10, 1, 10)
                 .boxed()
                 .filter(value -> value >= 5)
                 .sorted(Comparator.naturalOrder())
-                .map(value -> (int) Math.pow(value, 2))
-                .
+                .map(NumberUtils::squareUp)
+                .map(Description::new)
+                .peek(System.out::println)
+                .map(Description::getValue)
+//                .mapToInt(Integer::intValue)
+//                .sum()
+                // This is an alternative way to do the above operation
+                .reduce(0, Integer::sum);
+//                .max(Comparator.naturalOrder())
+//                .ifPresentOrElse(
+//                        value -> System.out.println("Max value: " + value),
+//                        () -> System.out.println("There is no max value because the stream is empty")
+//                );
+
+        System.out.println(sumOfStream);
     }
 }
