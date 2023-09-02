@@ -1,9 +1,7 @@
 package com.functional.streams;
 
 import java.util.Comparator;
-import java.util.List;
 import java.util.Random;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -83,7 +81,7 @@ public class Main {
         var accumulatedAges = Stream.of(
                 new Student("Sergio", 20),
                 new Student("Idania", 56)
-        ).reduce(0,(partialResult, student) -> partialResult + student.getAge(), Integer::sum);
+        ).reduce(0,(partialResult, student) -> partialResult + student.age(), Integer::sum);
 
         System.out.println(accumulatedAges);
 
