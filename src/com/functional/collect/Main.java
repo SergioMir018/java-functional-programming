@@ -2,6 +2,7 @@ package com.functional.collect;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,5 +17,11 @@ public class Main {
                 new Book("923-45", "Los papeles por delante", 1998, Genre.THRILLER),
                 new Book("978-25", "La vide de Baldomero", 2017, Genre.COMEDY)
         );
+
+        var newerBooks = myBooks.stream()
+                .filter(book -> book.getYearPublication() > 2000)
+                .collect(Collectors.toSet());
+
+        System.out.println(newerBooks);
     }
 }
